@@ -16,6 +16,6 @@ namespace KukharAutoInfotechProject.Models
         public string AutoColor { get; set; }
         public DateTime YearFromPipeline { get; set; }
 
-        public List<AutosAndOwners> AutoAndOwners { get; set; }
+        public virtual ICollection<AutosAndOwners> AutoAndOwners { get; set; }
      }
 }

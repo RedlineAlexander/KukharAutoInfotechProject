@@ -16,6 +16,6 @@ namespace KukharAutoInfotechProject.Models
         public DateTime BirthDate { get; set; }
 
 
-        public List<AutosAndOwners> AutosAndOwners { get; set; }
+        public virtual ICollection<AutosAndOwners> AutosAndOwners { get; set; }
     }
 }

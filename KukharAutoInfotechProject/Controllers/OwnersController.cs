@@ -17,6 +17,7 @@ namespace KukharAutoInfotechProject.Controllers
         {
             _context = context;
         }
+        //GET:api/Owners/3
         [HttpGet("{id}")]
         public async Task<ActionResult<Owners>> GetOwners(int id)
         {

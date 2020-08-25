@@ -17,12 +17,13 @@ namespace KukharAutoInfotechProject.Controllers
         {
             _context = context;
         }
-      //  [HttpGet]
-     //   public async Task<ActionResult<IEnumerable<Autos>>> GetAllAutos()
-      //  {
-      //      return await _context.Autos.Select(x => ItemToAutos(x))
-      //          .ToListAsync();
-     //   }
+        //  [HttpGet]
+        //   public async Task<ActionResult<IEnumerable<Autos>>> GetAllAutos()
+        //  {
+        //      return await _context.Autos.Select(x => ItemToAutos(x))
+        //          .ToListAsync();
+        //   }
+        //GET:api/Autos/3
         [HttpGet("{id}")]
         public async Task<ActionResult<Autos>>GetAutos(int id)
         {

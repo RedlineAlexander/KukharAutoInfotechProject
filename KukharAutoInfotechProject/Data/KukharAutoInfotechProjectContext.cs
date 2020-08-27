@@ -209,7 +209,16 @@ namespace KukharAutoInfotechProject.Data
                                            
                     );
 
-               modelBuilder.Entity<AutosAndOwners>().HasKey(c => new { c.PK_AutoID, c.PK_OwnerID });
+            modelBuilder.Entity<Autos>().HasKey(x => x.PK_AutoID);
+
+            modelBuilder.Entity<Owners>().HasKey(x => x.PK_OwnerID);
+
+            modelBuilder.Entity<AutosAndOwners>().HasKey(x => new { x.PKAutoID, x.PKOwnerID});
+
+            modelBuilder.Entity<AutosAndOwners>().HasOne(x => x.AutosFK).WithMany(m => m.OwnersList).HasForeignKey(x => x.PKAutoID);
+
+            modelBuilder.Entity<AutosAndOwners>().HasOne(x => x.OwnersFK).WithMany(e => e.AutosList).HasForeignKey(x => x.PKOwnerID);
+             //  modelBuilder.Entity<AutosAndOwners>().HasKey(c => new { c.PK_AutoID, c.PK_OwnerID });
 
         }
         public DbSet<Autos> Autos { get; set; } 

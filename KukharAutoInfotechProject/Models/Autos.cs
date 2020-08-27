@@ -19,6 +19,11 @@ namespace KukharAutoInfotechProject.Models
         public DateTime YearFromPipeline { get; set; }
         //public  int? AutosAndOwners { get; set; }
 
-        public virtual ICollection<AutosAndOwners> FK_AutoFromOwners { get; set; }
+        //public virtual ICollection<AutosAndOwners> FK_AutoFromOwners { get; set; }
+        public virtual ICollection<AutosAndOwners> OwnersList { get; set; }
+     //   public Autos()
+       // {
+         //   OwnersList = new List<Owners>();
+        //}
      }
 }

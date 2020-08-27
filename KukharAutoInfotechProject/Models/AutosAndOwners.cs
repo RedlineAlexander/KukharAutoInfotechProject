@@ -15,13 +15,13 @@ namespace KukharAutoInfotechProject.Models
         //  [Key]
      //   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     //    [Key, Column(Order=2)]
-        public int PK_AutoID { get; set; }
+        public int PKAutoID { get; set; }
        // [ForeignKey("AutosID")]
         public virtual Autos AutosFK { get; set; }
         //  [Key]
        // [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     //    [Key, Column(Order=3)]
-        public int PK_OwnerID { get; set; }
+        public int PKOwnerID { get; set; }
         //
        // [ForeignKey("OwnersID")]
         public virtual  Owners OwnersFK { get; set; }

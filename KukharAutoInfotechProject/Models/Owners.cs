@@ -47,6 +47,12 @@ namespace KukharAutoInfotechProject.Models
         public DateTime BirthDate { get; set; }
 
        //public int? AutosAndOwnersID { get; set; }
-        public virtual ICollection<AutosAndOwners> FKOwnersForAutos { get; set; }
+     //   public virtual ICollection<AutosAndOwners> FKOwnersForAutos { get; set; }
+
+            public virtual ICollection<AutosAndOwners> AutosList { get; set; }
+      //  public Owners()
+      //  {
+      //      AutosList = new List<Autos>();
+      //  }
     }
 }

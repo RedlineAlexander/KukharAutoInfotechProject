@@ -37,7 +37,7 @@ namespace KukharAutoInfotechProject.Data
             modelBuilder.Entity<Autos>().HasData(
                 new Autos
                 {
-                    PK_AutoID = 2,
+                    PK_AutoID = 3,
                     AutoName = "Mazda",
                     AutoColor = "Red",
                     YearFromPipeline = new DateTime(2013,7,10,23,49,0)
@@ -47,14 +47,18 @@ namespace KukharAutoInfotechProject.Data
             modelBuilder.Entity<Owners>().HasData(
                 new Owners
                 {
-                   PK_OwnerID = 2,
+                  PK_OwnerID = 3,
                     LastName = "Oleks",
                     FirstName = "Tyxy",
                     FatherName = "Oleksiovic",
                     BirthDate = new DateTime(2002, 7,10,23,45,0)
                 }
+                     );
+            modelBuilder.Entity<AutosAndOwners>().HasKey(c => new { c.PK_AutoID, c.PK_OwnerID });
 
-                );
+          
+
+           
         }
         public DbSet<Autos> Autos { get; set; } 
         public DbSet<Owners> Owners { get; set; }

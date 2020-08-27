@@ -4,14 +4,16 @@ using KukharAutoInfotechProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KukharAutoInfotechProject.Migrations
 {
     [DbContext(typeof(KukharAutoInfotechProjectContext))]
-    partial class KukharAutoInfotechProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20200827110914_NewUpdateAutoInfoProjectDatabaseInsertingWithoutOneKeyButGeneratedNoErrors")]
+    partial class NewUpdateAutoInfoProjectDatabaseInsertingWithoutOneKeyButGeneratedNoErrors
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,17 +59,14 @@ namespace KukharAutoInfotechProject.Migrations
                     b.Property<int>("PK_OwnerID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AutosFKPK_AutoID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OwnersFKPK_OwnerID")
-                        .HasColumnType("int");
+                    b.Property<int>("AutosAndOwnersID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.HasKey("PK_AutoID", "PK_OwnerID");
 
-                    b.HasIndex("AutosFKPK_AutoID");
-
-                    b.HasIndex("OwnersFKPK_OwnerID");
+                    b.HasIndex("PK_OwnerID");
 
                     b.ToTable("AutosAndOwners");
                 });
@@ -110,11 +109,15 @@ namespace KukharAutoInfotechProject.Migrations
                 {
                     b.HasOne("KukharAutoInfotechProject.Models.Autos", "AutosFK")
                         .WithMany("FK_AutoFromOwners")
-                        .HasForeignKey("AutosFKPK_AutoID");
+                        .HasForeignKey("PK_AutoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("KukharAutoInfotechProject.Models.Owners", "OwnersFK")
                         .WithMany("FKOwnersForAutos")
-                        .HasForeignKey("OwnersFKPK_OwnerID");
+                        .HasForeignKey("PK_OwnerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

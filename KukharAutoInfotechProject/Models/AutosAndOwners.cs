@@ -9,13 +9,18 @@ namespace KukharAutoInfotechProject.Models
 {
     public class AutosAndOwners
     {
-     [Key]
-      public int AutosAndOwnersID {get;set;}
-      //  [Key]
-       public int PK_AutoID { get; set; }
+      //  [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+     //   [Key, Column(Order=1)]
+     // public int AutosAndOwnersID {get;set;}
+        //  [Key]
+     //   [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    //    [Key, Column(Order=2)]
+        public int PK_AutoID { get; set; }
        // [ForeignKey("AutosID")]
         public virtual Autos AutosFK { get; set; }
-      //  [Key]
+        //  [Key]
+       // [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    //    [Key, Column(Order=3)]
         public int PK_OwnerID { get; set; }
         //
        // [ForeignKey("OwnersID")]

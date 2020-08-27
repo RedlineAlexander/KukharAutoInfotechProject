@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 /*
@@ -35,8 +36,11 @@ namespace KukharAutoInfotechProject.Models
 {
     public class Owners
     {
-       [Key]
-       public int PK_OwnerID { get; set; }
+        
+        [Key] 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+        public int PK_OwnerID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string FatherName { get; set; }

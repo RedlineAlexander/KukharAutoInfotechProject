@@ -37,21 +37,21 @@ namespace KukharAutoInfotechProject.Data
             modelBuilder.Entity<Autos>().HasData(
                 new Autos
                 {
-                    PK_AutoID = 1,
+                    PK_AutoID = 2,
                     AutoName = "Mazda",
-                    AutoColor = "Blue",
-                    YearFromPipeline = new DateTime(2014,7,10,23,49,0)
+                    AutoColor = "Red",
+                    YearFromPipeline = new DateTime(2013,7,10,23,49,0)
 
                 }
                 ) ; 
             modelBuilder.Entity<Owners>().HasData(
                 new Owners
                 {
-                    PK_OwnerID = 1,
-                    LastName = "Oleksa",
-                    FirstName = "Tyxyi",
-                    FatherName = "Oleksiovich",
-                    BirthDate = new DateTime(2000, 7,10,23,45,0)
+                   PK_OwnerID = 2,
+                    LastName = "Oleks",
+                    FirstName = "Tyxy",
+                    FatherName = "Oleksiovic",
+                    BirthDate = new DateTime(2002, 7,10,23,45,0)
                 }
 
                 );

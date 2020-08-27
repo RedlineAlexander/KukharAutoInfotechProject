@@ -31,6 +31,31 @@ namespace KukharAutoInfotechProject.Data
           //  modelBuilser
 
        // }
+
+            protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Autos>().HasData(
+                new Autos
+                {
+                    PK_AutoID = 1,
+                    AutoName = "Mazda",
+                    AutoColor = "Blue",
+                    YearFromPipeline = new DateTime(2014,7,10,23,49,0)
+
+                }
+                ) ; 
+            modelBuilder.Entity<Owners>().HasData(
+                new Owners
+                {
+                    PK_OwnerID = 1,
+                    LastName = "Oleksa",
+                    FirstName = "Tyxyi",
+                    FatherName = "Oleksiovich",
+                    BirthDate = new DateTime(2000, 7,10,23,45,0)
+                }
+
+                );
+        }
         public DbSet<Autos> Autos { get; set; } 
         public DbSet<Owners> Owners { get; set; }
         public DbSet<AutosAndOwners> AutosAndOwners { get; set; }

@@ -9,16 +9,16 @@ namespace KukharAutoInfotechProject.Models
 {
     public class AutosAndOwners
     {
-     //[Key]
-     // public int AutosAndOwnersID {get;set;}
-        [Key]
+     [Key]
+      public int AutosAndOwnersID {get;set;}
+      //  [Key]
        public int PK_AutoID { get; set; }
-        [ForeignKey("AutosID")]
+       // [ForeignKey("AutosID")]
         public virtual Autos AutosFK { get; set; }
-        [Key]
+      //  [Key]
         public int PK_OwnerID { get; set; }
         //
-        [ForeignKey("OwnersID")]
+       // [ForeignKey("OwnersID")]
         public virtual  Owners OwnersFK { get; set; }
     }
 }

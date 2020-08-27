@@ -4,14 +4,16 @@ using KukharAutoInfotechProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KukharAutoInfotechProject.Migrations
 {
     [DbContext(typeof(KukharAutoInfotechProjectContext))]
-    partial class KukharAutoInfotechProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20200827095000_NewUpdateAutoInfoProjectDatabaseInsert")]
+    partial class NewUpdateAutoInfoProjectDatabaseInsert
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

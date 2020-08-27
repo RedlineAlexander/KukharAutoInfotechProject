@@ -4,14 +4,16 @@ using KukharAutoInfotechProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KukharAutoInfotechProject.Migrations
 {
     [DbContext(typeof(KukharAutoInfotechProjectContext))]
-    partial class KukharAutoInfotechProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20200827074328_NewUpdateAutoInfoProjectDatabase")]
+    partial class NewUpdateAutoInfoProjectDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,15 +40,6 @@ namespace KukharAutoInfotechProject.Migrations
                     b.HasKey("PK_AutoID");
 
                     b.ToTable("Autos");
-
-                    b.HasData(
-                        new
-                        {
-                            PK_AutoID = 1,
-                            AutoColor = "Blue",
-                            AutoName = "Mazda",
-                            YearFromPipeline = new DateTime(2014, 7, 10, 23, 49, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("KukharAutoInfotechProject.Models.AutosAndOwners", b =>
@@ -99,16 +92,6 @@ namespace KukharAutoInfotechProject.Migrations
                     b.HasKey("PK_OwnerID");
 
                     b.ToTable("Owners");
-
-                    b.HasData(
-                        new
-                        {
-                            PK_OwnerID = 1,
-                            BirthDate = new DateTime(2000, 7, 10, 23, 45, 0, 0, DateTimeKind.Unspecified),
-                            FatherName = "Oleksiovich",
-                            FirstName = "Tyxyi",
-                            LastName = "Oleksa"
-                        });
                 });
 
             modelBuilder.Entity("KukharAutoInfotechProject.Models.AutosAndOwners", b =>

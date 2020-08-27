@@ -4,14 +4,16 @@ using KukharAutoInfotechProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KukharAutoInfotechProject.Migrations
 {
     [DbContext(typeof(KukharAutoInfotechProjectContext))]
-    partial class KukharAutoInfotechProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20200826091845_GoNewKukharInfotech")]
+    partial class GoNewKukharInfotech
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,9 +34,6 @@ namespace KukharAutoInfotechProject.Migrations
                     b.Property<string>("AutoName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("AutosAndOwners")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("YearFromPipeline")
                         .HasColumnType("datetime2");
 
@@ -50,17 +49,17 @@ namespace KukharAutoInfotechProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AutosID")
+                    b.Property<int?>("AutosFKPK_AutoID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("OwnersID")
+                    b.Property<int?>("OwnersFKPK_OwnerID")
                         .HasColumnType("int");
 
                     b.HasKey("AutosAndOwnersID");
 
-                    b.HasIndex("AutosID");
+                    b.HasIndex("AutosFKPK_AutoID");
 
-                    b.HasIndex("OwnersID");
+                    b.HasIndex("OwnersFKPK_OwnerID");
 
                     b.ToTable("AutosAndOwners");
                 });
@@ -71,9 +70,6 @@ namespace KukharAutoInfotechProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AutosAndOwnersID")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
@@ -96,11 +92,11 @@ namespace KukharAutoInfotechProject.Migrations
                 {
                     b.HasOne("KukharAutoInfotechProject.Models.Autos", "AutosFK")
                         .WithMany("FK_AutoFromOwners")
-                        .HasForeignKey("AutosID");
+                        .HasForeignKey("AutosFKPK_AutoID");
 
                     b.HasOne("KukharAutoInfotechProject.Models.Owners", "OwnersFK")
                         .WithMany("FKOwnersForAutos")
-                        .HasForeignKey("OwnersID");
+                        .HasForeignKey("OwnersFKPK_OwnerID");
                 });
 #pragma warning restore 612, 618
         }
